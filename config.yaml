@@ -1,0 +1,21 @@
+listen: :443
+
+tls:
+  cert: /etc/hysteria/bing.pem
+  key: /etc/hysteria/bing.key
+
+quic:
+  initStreamReceiveWindow: 16777216
+  maxStreamReceiveWindow: 16777216
+  initConnReceiveWindow: 33554432
+  maxConnReceiveWindow: 33554432
+
+auth:
+  type: password
+  password: password
+
+masquerade:
+  type: proxy
+  proxy:
+    url: https://www.bing.com
+    rewriteHost: true

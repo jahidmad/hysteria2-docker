@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  hysteria2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: hysteria:2.6.2
+    container_name: hysteria2
+    restart: unless-stopped
+    volumes:
+      - /etc/hysteria/config.yaml:/etc/hysteria/config.yaml
+    ports:
+      - "443:443/udp"
+    network_mode: bridge
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"      # 单个日志文件最大10MB
+        max-file: "3"        # 最多保留3个日志文件
