@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   hysteria2:
     build:
@@ -9,7 +7,7 @@ services:
     container_name: hysteria2
     restart: unless-stopped
     volumes:
-      - /etc/hysteria/config.yaml:/etc/hysteria/config.yaml
+      - ./config.yaml:/etc/hysteria/config.yaml
     ports:
       - "443:443/udp"
     network_mode: bridge
